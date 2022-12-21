@@ -7,15 +7,6 @@ import pandas as pd
 import json
 import html
 import re
-import  psycopg2
-
-con = psycopg2.connect(
-    database="evaluation_data",
-    user="postgres",
-    password="db2022!!!",
-    host="127.0.0.1",
-    port="5432"
-)
 
 data = []
 
