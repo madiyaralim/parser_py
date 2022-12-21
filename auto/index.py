@@ -7,6 +7,15 @@ import pandas as pd
 import json
 import html
 import re
+import  psycopg2
+
+con = psycopg2.connect(
+    database="evaluation_data",
+    user="postgres",
+    password="db2022!!!",
+    host="127.0.0.1",
+    port="5432"
+)
 
 data = []
 
@@ -31,7 +40,7 @@ for p in range(2, 4):
         #auto_city = auto.find('div', class_='card-stats__item').text
 
 
-       # print(auto_data)
+        #print(year)
         auto = []
         auto.append({
                 'Цена': auto_price,
