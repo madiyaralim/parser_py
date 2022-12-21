@@ -21,22 +21,26 @@ for p in range(2, 4):
 
     for auto in autos:
 
-        auto_data = auto.find('a', class_='a-card__link').text
+        auto_data = auto.find('h5', class_='a-card__title').find('a', class_='a-card__link').text
         auto_price = auto.find('span', class_='a-card__price').text
         auto_description = auto.find('p', class_='a-card__description').text
-        year = re.findall(r'\d{2})', auto_description)
+        auto_link = auto.find('h5', class_='a-card__title').find('a', class_='a-card__link').get('href')
+        link_kolesa = 'https://kolesa.kz'
+        year = re.findall(r'\d{4}', auto_description)
         #auto_title = auto.find('div', class_='a-card__text-preview').text
         #auto_city = auto.find('div', class_='card-stats__item').text
 
 
-        print(year)
-       # auto = []
-      #  auto.append({
-       #         'Цена': auto_price,
-       #         'Модель': auto_data,
-      #          'Данные': re.split("\, |\,", auto_description)
-      #      })
-        #print(auto)
+       # print(auto_data)
+        auto = []
+        auto.append({
+                'Цена': auto_price,
+                'Модель': auto_data,
+                'Год': year,
+                'Ссылка': link_kolesa + auto_link
+
+            })
+        print(auto)
         #with io.open('data.json' , 'w', encoding='utf8') as json_file:
          #   json.dump(auto, json_file, indent=3, ensure_ascii=False)
 
